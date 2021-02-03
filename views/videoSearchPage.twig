@@ -341,7 +341,7 @@
 
     <!--Videos container section start-->
     <section>
-        <div class="container d-flex justify-content-center">
+        <div class="container d-flex justify-content-center mb-3">
             <div class="row">
                 <div class="col">
                 </div>
@@ -349,13 +349,57 @@
                     {% for row in data %}
                     <div class="col">
                         <div class="card">
-                            <iframe class="embed-responsive-item" src={{ ('/' ~ row.link) }}></iframe>
+                            <!-- <iframe class="embed-responsive-item" src={{ ('/' ~ row.link) }}></iframe> -->
                             <div class="card-body">
-                                <h5 class="card-header bg-transparent">{{row.video_name}}</h5>
-                                <b class="card-header bg-transparent">Subject: {{row.subject_name}}</b>
-                                <p class="card-header bg-transparent">{{row.teacher_name}}</p>
-                                <p class="card-text">{{row.dept_name}}</p>
-                                <b class="card-footer bg-transparent">Views: {{row.views}}</b>
+
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                                {{row.video_name}}
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse"
+                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <p class="text-start"><a
+                                                                    href="https://www.youtube.com/channel/UCb9okJF6NGPDUGgAQxu3TcA"
+                                                                    target="_blank" style="text-decoration: none;">Watch
+                                                                    Video >>> </a>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <b class="text-start"
+                                                                class="card-header bg-transparent">Subject:
+                                                                {{row.subject_name}}</b>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <p class="text-start" class="card-header bg-transparent">
+                                                                {{row.teacher_name}}</p>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <p class="text-start" class="card-text">{{row.dept_name}}
+                                                            </p>
+                                                        </div>
+                                                        <!-- <div class="col-12">
+                                                            <b class="text-start" class="card-footer bg-transparent">Views:
+                                                                {{row.views}}</b>
+                                                        </div> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
                             </div>
                         </div>
                     </div>
