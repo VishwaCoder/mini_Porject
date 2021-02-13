@@ -15,7 +15,7 @@ exports.getIndex = (req, res, next) => {
 
 exports.getAllVideos = (req, res, next) => {
 
-    const sqlQuery = `SELECT DISTINCT(teacher_name),subject_name,video_name,id,link,dept_name,likes,dislikes,views,comments FROM videos WHERE dept_name = 'Information Technology' LIMIT 20`;
+    const sqlQuery = `SELECT DISTINCT(teacher_name),subject_name,video_name,id,link,dept_name,likes,dislikes,views,comments FROM videos WHERE dept_name = 'Information Technology' LIMIT 40`;
     connectionCompanion.query(sqlQuery, function (err, data) {
         if (err) {
             res.render('videoSearchPage', { err: err });
@@ -93,7 +93,7 @@ exports.getSearchByKey = (req, res, next) => {
 
     let key_val = req.body.fName;
     //console.log(key_val);  
-    const sqlQuery = `SELECT * FROM videos WHERE LOWER(video_name) LIKE '%${key_val}%' or LOWER(subject_name) LIKE '%${key_val}%'`;
+    const sqlQuery = `SELECT * FROM videos WHERE LOWER(video_name) LIKE '%${key_val}%' or LOWER(subject_name) LIKE '%${key_val}%' or LOWER(teacher_name) LIKE '%${key_val}%'`;
     connectionCompanion.query(sqlQuery, function (err, data) {
         if (err) {
             return
